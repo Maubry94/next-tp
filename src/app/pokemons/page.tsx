@@ -24,7 +24,8 @@ export default function PokemonsPage() {
                 typeId
             }
         });
-        setPokemons(prevPokemons => [...prevPokemons, ...response.data]);
+        // setPokemons(prevPokemons => [...prevPokemons, ...response.data]);
+        setPokemons(response.data);
     }
 
     const getTypes = async () => {
