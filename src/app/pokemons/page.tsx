@@ -53,36 +53,38 @@ export default function PokemonsPage() {
     };
 
     return (
-        <div onScroll={handleScroll} className="p-4 bg-gray-100 min-h-screen overflow-auto h-screen">
-            <h1 className="text-3xl font-bold text-center mb-6">Liste des pokemons</h1>
-            <div className="flex gap-4 mb-6 justify-center">
-                <input 
-                    type="text" 
-                    placeholder="Nom du Pokémon" 
-                    value={name} 
-                    onChange={(e) => setName(e.target.value)} 
-                    className="border p-2 rounded-lg shadow-sm"
-                />
-                <select 
-                    value={typeId ?? ""} 
-                    onChange={(e) => setTypeId(e.target.value ? Number(e.target.value) : null)} 
-                    className="border p-2 rounded-lg shadow-sm"
-                >
-                    <option value="">Tous les types</option>
-                    {types.map(type => (
-                        <option key={type.id} value={type.id}>{type.name}</option>
-                    ))}
-                </select>
-                <select 
-                    value={limit} 
-                    onChange={(e) => setLimit(Number(e.target.value))} 
-                    className="border p-2 rounded-lg shadow-sm"
-                >
-                    <option value={10}>10</option>
-                    <option value={20}>20</option>
-                    <option value={50}>50</option>
-                    <option value={100}>100</option>
-                </select>
+        <div onScroll={handleScroll} className="p-4 pt-0 bg-gray-100 min-h-screen overflow-auto h-screen">
+            <div className="sticky top-0 z-50 py-4 bg-gray-100">
+                <h1 className="text-3xl font-bold text-center mb-6">Liste des pokemons</h1>
+                <div className="flex gap-4 mb-6 justify-center">
+                    <input 
+                        type="text" 
+                        placeholder="Nom du Pokémon" 
+                        value={name} 
+                        onChange={(e) => setName(e.target.value)} 
+                        className="border p-2 rounded-lg shadow-sm"
+                    />
+                    <select 
+                        value={typeId ?? ""} 
+                        onChange={(e) => setTypeId(e.target.value ? Number(e.target.value) : null)} 
+                        className="border p-2 rounded-lg shadow-sm"
+                    >
+                        <option value="">Tous les types</option>
+                        {types.map(type => (
+                            <option key={type.id} value={type.id}>{type.name}</option>
+                        ))}
+                    </select>
+                    <select 
+                        value={limit} 
+                        onChange={(e) => setLimit(Number(e.target.value))} 
+                        className="border p-2 rounded-lg shadow-sm"
+                    >
+                        <option value={10}>10</option>
+                        <option value={20}>20</option>
+                        <option value={50}>50</option>
+                        <option value={100}>100</option>
+                    </select>
+                </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {pokemons.map(pokemon => (
